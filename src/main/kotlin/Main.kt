@@ -13,7 +13,7 @@ import java.sql.SQLException
 import kotlin.time.Duration.Companion.milliseconds
 
 fun main() = runBlocking(Dispatchers.IO) {
-    val url = "jdbc:sqlite:mydatabase.db"
+    val url = "jdbc:sqlite:translates.db"
     val hikariConfig = HikariConfig().apply {
         jdbcUrl = url
         driverClassName = "org.sqlite.JDBC"
