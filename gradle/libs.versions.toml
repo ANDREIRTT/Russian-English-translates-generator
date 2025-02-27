@@ -1,0 +1,35 @@
+[versions]
+kotlin = "2.1.10"
+ktor = "3.1.1"
+kotlin-coroutine = "1.6.4"
+
+koin = "4.0.2"
+
+sqlite-jdbc = "3.34.0"
+sqlite-hikari = "5.0.1"
+slf4j = "2.0.7"
+
+csv-parser = "2.9.1"
+
+[libraries]
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
+ktor-web-socket = { module = "io.ktor:ktor-server-websockets", version.ref = "ktor" }
+
+#koin-core = { module = "org.koin:koin-core", version.ref = "koin" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
+
+kotlin-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutine" }
+
+sqlite-jdbc = { module = "org.xerial:sqlite-jdbc", version.ref = "sqlite-jdbc" }
+sqlite-hikari = { module = "com.zaxxer:HikariCP", version.ref = "sqlite-hikari" }
+slf4j = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+
+csv-parser = { module = "com.univocity:univocity-parsers", version.ref = "csv-parser" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+
+[bundles]
+ktor = ["ktor-server-core", "ktor-server-netty", "ktor-web-socket"]

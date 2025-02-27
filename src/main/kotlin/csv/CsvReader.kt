@@ -13,7 +13,6 @@ class CsvReader {
         wordType: WordType,
         onEach: (csvData: CsvData) -> Unit
     ) {
-        println("start reading ${wordType.name}")
         val file = when (wordType) {
             WordType.NOUN -> File("src/main/resources/openRussian/nouns.csv")
             WordType.VERB -> File("src/main/resources/openRussian/verbs.csv")
@@ -91,6 +90,5 @@ class CsvReader {
                 println("error parse source: $source, translation: $translations")
             }
         }
-        println("end reading ${wordType.name}")
     }
 }

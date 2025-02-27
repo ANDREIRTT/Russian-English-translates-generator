@@ -1,8 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
 }
 
-group = "org.example"
+group = "com.mal.words.db"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -10,12 +11,17 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("com.univocity:univocity-parsers:2.9.1")
+    implementation(libs.bundles.ktor)
+    implementation(libs.kotlin.coroutine)
 
-    implementation("org.slf4j:slf4j-simple:2.0.7")
-    implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.xerial:sqlite-jdbc:3.34.0")
+    implementation(libs.koin.ktor)
+
+    implementation(libs.csv.parser)
+
+    implementation(libs.sqlite.hikari)
+    implementation(libs.sqlite.jdbc)
+    implementation(libs.slf4j)
+
     testImplementation(kotlin("test"))
 }
 
