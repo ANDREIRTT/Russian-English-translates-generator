@@ -1,20 +1,20 @@
 package db.language
 
+import com.zaxxer.hikari.HikariDataSource
 import db.getGeneratedKey
 import java.sql.Connection
 import java.sql.Statement
 
-class LanguageInserter(
-    private val connection: Connection
+class LanguageRepository(
 ) {
-    fun generateLanguages(): Map<Language, Long> {
+    fun getOrCreateLanguages(connection: Connection): Map<Language, Long> {
         return mapOf(
-            Language.RU to create("Russian", "RU"),
-            Language.EN to create("English", "EN")
+            Language.RU to create(connection, "Russian", "RU"),
+            Language.EN to create(connection, "English", "EN")
         )
     }
 
-    private fun create(name: String, code: String): Long {
+    private fun create(connection: Connection, name: String, code: String): Long {
         connection.prepareStatement(
             """
             INSERT OR IGNORE INTO languages (name, code) VALUES (?, ?) 
