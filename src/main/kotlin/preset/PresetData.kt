@@ -10,7 +10,7 @@ data class PresetData(
     @SerialName("level")
     val level: Level,
     @SerialName("category")
-    val category: String,
+    val category: Category,
     @SerialName("words")
     val words: List<PresetWord>
 )
